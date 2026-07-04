@@ -1,4 +1,4 @@
-const DIRECT_API_ROOT = 'https://api-online.abc.vn/api/v1/client';
+const DIRECT_API_ROOT = 'https://api-online.riki.edu.vn/api/v1/client';
 
 const el = {
   tokenInput: document.getElementById('tokenInput'),
