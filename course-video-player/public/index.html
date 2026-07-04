@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Course Video Player</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Course Video Player</h1>
+      <p>Load roadmap lessons, lọc video, phát HLS trong trình duyệt.</p>
+    </div>
+  </header>
+
+  <section class="config-panel">
+    <label>
+      <span>Bearer token / JWT</span>
+      <input id="tokenInput" type="password" placeholder="Bearer eyJ... hoặc eyJ..." autocomplete="off" />
+    </label>
+
+    <label>
+      <span>Course ID</span>
+      <input id="courseIdInput" type="number" value="18" />
+    </label>
+
+    <label>
+      <span>API mode</span>
+      <select id="apiModeInput">
+        <option value="proxy" selected>Local proxy /api</option>
+        <option value="direct">Direct API</option>
+      </select>
+    </label>
+
+    <button id="loadBtn">Load course</button>
+  </section>
+
+  <div id="status" class="status hidden"></div>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-toolbar">
+        <input id="searchInput" placeholder="Tìm bài..." />
+        <select id="typeFilter">
+          <option value="all">Tất cả</option>
+          <option value="1">Video</option>
+          <option value="2">Flashcard</option>
+          <option value="3">Bài tập</option>
+        </select>
+      </div>
+
+      <div class="export-bar">
+        <button id="copyVideoIdsBtn" class="secondary">Copy video IDs</button>
+        <button id="downloadCsvBtn" class="secondary">CSV</button>
+      </div>
+
+      <div id="courseSummary" class="course-summary">Chưa load course.</div>
+      <div id="lessonList" class="lesson-list"></div>
+    </aside>
+
+    <section class="player-panel">
+      <video id="player" controls playsinline></video>
+
+      <div class="lesson-meta">
+        <h2 id="lessonTitle">Chưa chọn bài</h2>
+        <div id="lessonInfo" class="muted">Load course rồi chọn một bài type=1 để phát video.</div>
+        <div id="sourceList" class="source-list"></div>
+        <pre id="debugBox" class="debug-box hidden"></pre>
+        <div id="errorBox" class="error hidden"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

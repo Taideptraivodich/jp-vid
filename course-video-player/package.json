@@ -1,0 +1,17 @@
+{
+  "name": "course-video-player",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local frontend video player for authorized course API access.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
